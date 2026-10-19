@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventPro | Event Details</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ems.css">
+</head>
+<body class="home-body">
+
+  <header class="home-navbar">
+    <a href="user-home.html" class="home-brand">
+      <i class="fa-regular fa-calendar-check"></i>
+      <span>EventPro</span>
+    </a>
+
+    <nav class="home-nav">
+      <a href="user-home.html">Home</a>
+      <a href="eventtype.html">Event Types</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="#" class="btn-primary">Book an Event</a>
+  </header>
+
+  <ol class="ed-steps">
+    <li class="ed-step is-active">
+      <span class="ed-step-number">1</span>
+      <span class="ed-step-label">Event Details</span>
+    </li>
+    <li class="ed-step">
+      <span class="ed-step-number">2</span>
+      <span class="ed-step-label">Your Information</span>
+    </li>
+    <li class="ed-step">
+      <span class="ed-step-number">3</span>
+      <span class="ed-step-label">Review &amp; Submit</span>
+    </li>
+  </ol>
+
+  <main class="ed-page">
+    <form class="ed-form" action="submitted.html" method="get">
+
+      <div class="ed-heading">
+        <h1>Event Details</h1>
+        <p>Please fill in the details below for your event booking.</p>
+      </div>
+
+      <div class="ed-field ed-event-type">
+        <label for="event-type">Event type</label>
+        <select id="event-type" name="event_type" required>
+          <option value="" disabled selected>Select event type</option>
+          <option>Birthdays</option>
+          <option>Weddings</option>
+          <option>Corporate Events</option>
+          <option>Debut</option>
+          <option>Anniversary</option>
+          <option>Product Launch</option>
+          <option>Other</option>
+        </select>
+      </div>
+
+      <div class="ed-field ed-date">
+        <label for="event-date">Event Date</label>
+        <div class="ed-date-wrap">
+          <i class="fa-regular fa-calendar ed-date-icon"></i>
+          <input type="text" id="event-date" name="event_date" placeholder="Select date" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'" required>
+          <i class="fa-solid fa-chevron-down ed-date-chevron"></i>
+        </div>
+      </div>
+
+      <div class="ed-field ed-venue">
+        <label for="venue">Venue</label>
+        <select id="venue" name="venue" required>
+          <option value="" disabled selected>Select venue</option>
+          <option>Venue 1</option>
+          <option>Venue 2</option>
+          <option>Venue 3</option>
+        </select>
+      </div>
+
+      <div class="ed-field ed-guests">
+        <label for="guests">Number of Guests / Pax</label>
+        <input type="number" id="guests" name="guests" min="1" placeholder="Enter the number of guests" required>
+      </div>
+
+      <div class="ed-field ed-budget">
+        <label for="budget">Budget(PHP)</label>
+        <select id="budget" name="budget" required>
+          <option value="" disabled selected>Select budget range</option>
+          <option>Below 50,000</option>
+          <option>50,000 – 100,000</option>
+          <option>100,000 – 250,000</option>
+          <option>250,000 – 500,000</option>
+          <option>Above 500,000</option>
+        </select>
+      </div>
+
+      <div class="ed-field ed-details">
+        <label for="details">Other Event Details</label>
+        <textarea id="details" name="details" placeholder="Tell us more about your event (theme,special requests,etc.)"></textarea>
+      </div>
+
+      <div class="ed-actions">
+        <button type="submit" class="ed-submit">
+          <span>Submit</span>
+          <i class="fa-solid fa-arrow-right"></i>
+        </button>
+      </div>
+
+      <aside class="ed-help">
+        <div class="ed-help-icon">
+          <i class="fa-regular fa-calendar"></i>
+        </div>
+        <h2>Need help?</h2>
+        <p>You can always contact us<br>for any inquiries</p>
+        <a href="#contact" class="ed-help-button">Contact Us</a>
+      </aside>
+
+    </form>
+  </main>
+</body>
+</html>

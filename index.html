@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login | Event Management System</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ems.css">
+</head>
+<body>
+  <main class="login-page">
+
+    <section class="hero">
+
+
+      <img class="hero-image" src="images/login.jpg" alt="Event venue">
+      <div class="hero-overlay"></div>
+
+      <div class="hero-content">
+        <i class="fa-regular fa-calendar-days hero-logo"></i>
+
+        <div class="hero-text">
+          <h1>Turn Your<br>Special Moments<br>into Unforgettable<br>Events</h1>
+          <p>From intimate gatherings to grand celebrations,<br>we make event planning simple and stress-free.</p>
+        </div>
+
+        <ul class="features">
+          <li>
+            <i class="fa-regular fa-calendar-days"></i>
+            <h3>Easy Booking</h3>
+            <p>Book your event<br>in just a few steps.</p>
+          </li>
+          <li>
+            <i class="fa-solid fa-shield-halved"></i>
+            <h3>Trusted Venues</h3>
+            <p>Multiple venues<br>for every occasion</p>
+          </li>
+          <li>
+            <i class="fa-solid fa-users"></i>
+            <h3>Professional Support</h3>
+            <p>We're here to<br>help you, always.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <section class="login-panel">
+      <i class="fa-regular fa-calendar-days login-logo"></i>
+
+      <div class="login-heading">
+        <h2>Welcome Back!</h2>
+        <p>Log in to your account to continue.</p>
+      </div>
+
+      <form class="login-card" action="#" method="post">
+        <div class="field">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Enter Email" required>
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input type="password" id="password" name="password" placeholder="Enter Password" required>
+        </div>
+
+        <button type="submit" class="btn-signin">Sign In</button>
+      </form>
+    </section>
+
+  </main>
+  <script src="ems.js"></script>
+</body>
+</html>

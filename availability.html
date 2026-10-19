@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Check Venue Availability | EventPro</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="ems.css">
+</head>
+<body class="home-body">
+
+  <header class="home-navbar">
+    <a href="home.html" class="home-brand">
+      <i class="fa-regular fa-calendar-check"></i>
+      EventPro
+    </a>
+
+    <nav class="home-nav" aria-label="Main">
+      <a href="home.html">Home</a>
+      <a href="eventtypes.html">Event Types</a>
+      <a href="aboutus.html">Contact</a>
+    </nav>
+
+    <a href="mybookings.html" class="mb-profile" aria-label="My profile">
+      <span class="mb-avatar">
+        <i class="fa-solid fa-user"></i>
+        <img src="images/profile.jpg" alt="" onerror="this.remove()">
+      </span>
+      <span class="mb-greeting">Hi,Mae</span>
+    </a>
+  </header>
+
+  <main class="va-page">
+
+    <section class="va-left">
+      <h1>Check Venue Availability</h1>
+      <p class="va-sub">See available dates for your preferred venue.</p>
+
+      <div class="va-field va-venue-field">
+        <label for="venue">Venue</label>
+        <select id="venue"></select>
+      </div>
+
+      <div class="va-field va-date-field">
+        <label for="inDay">Date</label>
+        <div class="va-date-inputs">
+          <input type="text" id="inDay" placeholder="DD" maxlength="2" inputmode="numeric" aria-label="Day">
+          <input type="text" id="inMonth" placeholder="MM" maxlength="2" inputmode="numeric" aria-label="Month">
+          <input type="text" id="inYear" placeholder="YYYY" maxlength="4" inputmode="numeric" aria-label="Year">
+        </div>
+      </div>
+    </section>
+
+    <section class="va-calendar" aria-label="Calendar">
+      <div class="va-cal-head">
+        <select id="calMonth" aria-label="Month"></select>
+        <select id="calYear" aria-label="Year"></select>
+      </div>
+
+      <div class="va-weekdays" aria-hidden="true">
+        <span>Sun</span><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span>
+      </div>
+
+      <div class="va-days" id="calDays"></div>
+    </section>
+
+    <aside class="va-venue-card" aria-live="polite">
+      <div class="va-venue-photo">
+        <i class="fa-regular fa-image"></i>
+        <img id="vcImg" src="images/availability.jpg" alt="">
+      </div>
+
+      <div class="va-venue-top">
+        <h2 id="vcName"></h2>
+        <p id="vcPrice"></p>
+      </div>
+
+      <ul class="va-venue-info">
+        <li><i class="fa-solid fa-location-dot"></i><span id="vcArea"></span></li>
+        <li><i class="fa-solid fa-user-group"></i><span id="vcGuests"></span></li>
+        <li><span id="vcType"></span></li>
+      </ul>
+
+      <a href="eventdetails.html" class="va-view" id="vcLink">View details</a>
+    </aside>
+
+  </main>
+
+<script src="availability.js"></script>
+</body>
+</html>

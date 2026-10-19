@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventPro | Booking Details</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ems.css">
+</head>
+<body class="home-body">
+
+  <header class="home-navbar">
+    <a href="user-home.html" class="home-brand">
+      <i class="fa-regular fa-calendar-check"></i>
+      <span>EventPro</span>
+    </a>
+
+    <nav class="home-nav">
+      <a href="user-home.html">Home</a>
+      <a href="eventtype.html">Event Types</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="mybookings.html" class="mb-profile">
+      <span class="mb-avatar"><i class="fa-solid fa-user"></i></span>
+      <span class="mb-greeting">Hi,Mae</span>
+    </a>
+  </header>
+
+  <main class="bd-page">
+    <a href="mybookings.html" class="bd-back">
+      <i class="fa-solid fa-arrow-left"></i>
+      <span>Back to My Bookings</span>
+    </a>
+
+    <div class="bd-layout">
+
+      <section class="bd-card">
+        <div class="bd-summary">
+          <div class="bd-photo" role="img" aria-label="Booking image placeholder">
+            <img src="images/wedding.jpg" alt="">
+          </div>
+
+          <div class="bd-summary-info">
+            <h1>Wedding Reception</h1>
+            <ul class="bd-meta">
+              <li><i class="fa-solid fa-calendar-days"></i><span>Oct 26,2026</span></li>
+              <li><i class="fa-solid fa-location-dot"></i><span>Riverside Hotel</span></li>
+              <li><i class="fa-solid fa-user-group"></i><span>100 Guests</span></li>
+              <li><i class="fa-solid fa-wallet"></i><span>80,000-120,000</span></li>
+            </ul>
+          </div>
+
+          <span class="mb-badge mb-pending bd-badge">Pending</span>
+        </div>
+
+        <div class="bd-section bd-event-details">
+          <h2>Event Details</h2>
+          <p>Theme: Classic &amp; Elegant</p>
+          <p>Special Requests: -</p>
+        </div>
+
+        <div class="bd-section bd-contact">
+          <h2>Contact information</h2>
+          <ul>
+            <li><i class="fa-regular fa-user"></i><span>Maria Santos</span></li>
+            <li><i class="fa-solid fa-phone"></i><span>+63 912 345 6789</span></li>
+            <li><i class="fa-regular fa-envelope"></i><span>maria@gmail.com</span></li>
+          </ul>
+        </div>
+      </section>
+
+      <aside class="bd-status">
+        <div class="bd-status-icon">
+          <i class="fa-regular fa-clock"></i>
+        </div>
+        <h2>Waiting for Approval</h2>
+        <p>Your booking is currently under review.<br>we will notify you once it's confirmed<br>or declined.</p>
+        <a href="#contact" class="bd-status-button">Contact Us</a>
+      </aside>
+
+    </div>
+  </main>
+<script src="users.js"></script>
+</body>
+</html>

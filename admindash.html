@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventPro | Admin Dashboard</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body">
+
+  <aside class="sidebar">
+    <div class="sb-brand">
+      <i class="fa-regular fa-calendar-check"></i>
+      <div><strong>EventPro</strong><small>Admin Panel</small></div>
+    </div>
+
+    <nav class="sb-nav">
+      <a href="admindash.html" class="is-active"><i class="fa-solid fa-house"></i> Dashboard</a>
+      <a href="adminbookings.html"><i class="fa-regular fa-calendar-check"></i> Bookings</a>
+      <a href="adminevent.html"><i class="fa-regular fa-calendar-days"></i> Events</a>
+      <a href="adminsched.html"><i class="fa-regular fa-calendar"></i> Calendar & Scheduling</a>
+      <a href="adminvenue.html"><i class="fa-solid fa-building"></i> Venue Management</a>
+      <a href="adminguest.html"><i class="fa-solid fa-users"></i> Participants / Guests</a>
+      <a href="adminreport.html"><i class="fa-solid fa-chart-pie"></i> Reports & Reminders</a>
+      <a href="adminsettings.html"><i class="fa-solid fa-gear"></i> Settings</a>
+    </nav>
+
+    <div class="sb-user">
+      <span class="sb-avatar"><i class="fa-regular fa-user"></i></span>
+      <div><strong>Ms. Mai</strong><small>Admin</small></div>
+      <i class="fa-solid fa-chevron-down"></i>
+    </div>
+  </aside>
+
+  <main class="main">
+    <header class="topbar">
+      <div>
+        <h1 id="greeting">Good Morning, Ms. Mai!</h1>
+        <p>Here's what's happening with your events today.</p>
+      </div>
+      <div class="top-right">
+        <i class="fa-regular fa-bell"></i>
+        <span id="today">Oct 5, 2026</span>
+        <span class="top-avatar"><i class="fa-regular fa-user"></i></span>
+      </div>
+    </header>
+
+    <section class="stats">
+      <article class="stat stat-blue">
+        <i class="fa-solid fa-user-group"></i>
+        <h3>Total Bookings</h3>
+        <span class="num" id="sTotal">12</span>
+        <span class="note" id="nTotal">↑ confirmed</span>
+      </article>
+      <article class="stat stat-green">
+        <i class="fa-regular fa-calendar-check"></i>
+        <h3>Upcoming Events</h3>
+        <span class="num" id="sUpcoming">5</span>
+        <span class="note" id="nUpcoming">↑ next event</span>
+      </article>
+      <article class="stat stat-lav">
+        <i class="fa-solid fa-user-group"></i>
+        <h3>Total Guests</h3>
+        <span class="num" id="sGuests">320</span>
+        <span class="note" id="nGuests">↑ registered</span>
+      </article>
+      <article class="stat stat-yellow">
+        <i class="fa-regular fa-lightbulb"></i>
+        <h3>Pending Requests</h3>
+        <span class="num" id="sPending">3</span>
+        <a href="mybookings.html" class="note">View details →</a>
+      </article>
+    </section>
+
+    <section class="grid">
+      <div class="panel bookings">
+        <div class="panel-head">
+          <h2>Recent Bookings</h2>
+          <a href="mybookings.html" class="link">View All →</a>
+        </div>
+        <div class="table-wrap">
+          <table>
+            <thead>
+              <tr><th>Booking ID</th><th>Customer Name</th><th>Event Type</th><th>Date</th><th>Status</th><th>Action</th></tr>
+            </thead>
+            <tbody id="bookingRows"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <aside class="panel calendar">
+        <div class="panel-head">
+          <h2>Calendar</h2>
+          <a href="availability.html" class="link">View All →</a>
+        </div>
+        <div class="cal-nav">
+          <button type="button" id="prevM" aria-label="Previous month">‹</button>
+          <span id="calTitle"></span>
+          <button type="button" id="nextM" aria-label="Next month">›</button>
+        </div>
+        <div class="cal-grid" id="calGrid"></div>
+
+        <div class="quick">
+          <h4>Quick Actions</h4>
+          <div class="quick-grid">
+            <a href="#"><i class="fa-solid fa-user-group"></i>Add Guest</a>
+            <a href="eventdetails.html"><i class="fa-regular fa-building"></i>Add Event</a>
+            <a href="availability.html"><i class="fa-regular fa-calendar"></i>Check Availability</a>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+<script src="admindash.js"></script>
+<script src="admin-shared.js"></script>
+</body>
+</html>

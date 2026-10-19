@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>EventPro | My Bookings</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Lora:wght@600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="ems.css">
+</head>
+<body class="home-body">
+
+  <header class="home-navbar">
+    <a href="user-home.html" class="home-brand">
+      <i class="fa-regular fa-calendar-check"></i>
+      <span>EventPro</span>
+    </a>
+
+    <nav class="home-nav">
+      <a href="user-home.html">Home</a>
+      <a href="eventtype.html">Event Types</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <a href="mybookings.html" class="mb-profile">
+      <span class="mb-avatar"><i class="fa-solid fa-user"></i></span>
+      <span class="mb-greeting">Hi,Mae</span>
+    </a>
+  </header>
+
+  <main class="mb-page">
+    <div class="mb-heading">
+      <h1>My Bookings.</h1>
+      <p>Track the status of your event bookings.</p>
+    </div>
+
+    <div class="mb-tabs" role="tablist">
+      <button type="button" class="mb-tab is-active" data-filter="all">All</button>
+      <button type="button" class="mb-tab" data-filter="pending">Pending</button>
+      <button type="button" class="mb-tab" data-filter="confirmed">Confirmed</button>
+      <button type="button" class="mb-tab" data-filter="declined">Declined</button>
+    </div>
+
+    <section class="mb-list">
+
+      <article class="mb-card" data-status="pending">
+        <div class="mb-thumb" role="img" aria-label="Booking image placeholder">
+          <img src="images/wedding.jpg">
+        </div>
+
+        <div class="mb-info">
+          <h3>Wedding Reception</h3>
+          <ul class="mb-meta">
+            <li><i class="fa-regular fa-calendar"></i><span>Oct 26,2026</span></li>
+            <li><i class="fa-solid fa-location-dot"></i><span>Riverside Hotel</span></li>
+            <li><i class="fa-solid fa-user-group"></i><span>100 Guests</span></li>
+          </ul>
+          <p class="mb-budget"><strong>Budget:</strong> 80,000-120,000</p>
+        </div>
+
+        <div class="mb-side">
+          <span class="mb-badge mb-pending">Pending</span>
+          <a href="bookingdetails.html" class="mb-view">View Details</a>
+        </div>
+      </article>
+
+      <article class="mb-card" data-status="confirmed">
+        <div class="mb-thumb" role="img" aria-label="Booking image placeholder">
+            <img src="images/birthday.jpg">
+        </div>
+
+        <div class="mb-info">
+          <h3>Birthday Celebration</h3>
+          <ul class="mb-meta">
+            <li><i class="fa-regular fa-calendar"></i><span>Nov 16,2026</span></li>
+            <li><i class="fa-solid fa-location-dot"></i><span>The Grand Plaza</span></li>
+            <li><i class="fa-solid fa-user-group"></i><span>50 Guests</span></li>
+          </ul>
+          <p class="mb-budget"><strong>Budget:</strong> 30,000-50,000</p>
+        </div>
+
+        <div class="mb-side">
+          <span class="mb-badge mb-confirmed">Confirmed</span>
+          <a href="bookingdetails.html" class="mb-view">View Details</a>
+        </div>
+      </article>
+
+      <article class="mb-card" data-status="declined">
+        <div class="mb-thumb" role="img" aria-label="Booking image placeholder">
+            <img src="images/event.jpg">
+        </div>
+
+        <div class="mb-info">
+          <h3>Corporate Event</h3>
+          <ul class="mb-meta">
+            <li><i class="fa-regular fa-calendar"></i><span>Dec 10,2026</span></li>
+            <li><i class="fa-solid fa-location-dot"></i><span>Crown Hotel</span></li>
+            <li><i class="fa-solid fa-user-group"></i><span>120 Guests</span></li>
+          </ul>
+          <p class="mb-budget"><strong>Budget:</strong> 100,000-150,000</p>
+        </div>
+
+        <div class="mb-side">
+          <span class="mb-badge mb-declined">Declined</span>
+          <a href="bookingdetails.html" class="mb-view">View Details</a>
+        </div>
+      </article>
+
+    </section>
+  </main>
+
+  <script>
+    var tabs = document.querySelectorAll('.mb-tab');
+    var cards = document.querySelectorAll('.mb-card');
+
+    tabs.forEach(function (tab) {
+      tab.addEventListener('click', function () {
+        var filter = tab.getAttribute('data-filter');
+
+        tabs.forEach(function (t) { t.classList.remove('is-active'); });
+        tab.classList.add('is-active');
+
+        cards.forEach(function (card) {
+          var show = filter === 'all' || card.getAttribute('data-status') === filter;
+          card.hidden = !show;
+        });
+      });
+    });</script>
+<script src="users.js"></script>
+</body>
+</html>
