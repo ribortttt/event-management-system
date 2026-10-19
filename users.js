@@ -225,4 +225,29 @@ document.addEventListener("DOMContentLoaded", () => {
       if (bdImg) bdImg.src = detailData.image || "images/wedding.jpg";
     }
   }
+
+  if (page === "submitted.html") {
+  const params = new URLSearchParams(window.location.search);
+
+  const bookingFields = {
+    "Event Type:": "event_type",
+    "Date:": "event_date",
+    "Venue:": "venue",
+    "Guests:": "guests",
+    "Budget:": "budget"
+  };
+
+  document.querySelectorAll(".bs-item").forEach(function (item) {
+    const label = item.querySelector(".bs-label");
+    const value = item.querySelector(".bs-value");
+
+    if (!label || !value) return;
+
+    const key = bookingFields[label.textContent.trim()];
+
+    if (key && params.has(key) && params.get(key)) {
+      value.textContent = params.get(key);
+    }
+  });
+}
 });

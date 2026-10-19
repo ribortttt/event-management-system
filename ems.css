@@ -2082,3 +2082,45 @@ body {
   }
 }
 
+
+.demo-accounts {
+  width: 100%;
+  max-width: 420px;
+  margin: 20px auto 0;
+  padding: 16px;
+  box-sizing: border-box;
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 10px;
+}
+
+.demo-accounts h3 {
+  margin: 0 0 12px;
+  font-size: 15px;
+  color: #1e293b;
+}
+
+.demo-account {
+  padding: 10px 12px;
+  background: #fff;
+  border: 1px solid #e2e8f0;
+  border-radius: 7px;
+}
+
+.demo-account + .demo-account {
+  margin-top: 10px;
+}
+
+.demo-account strong {
+  display: block;
+  margin-bottom: 6px;
+  font-size: 13px;
+  color: #2563eb;
+}
+
+.demo-account p {
+  margin: 4px 0;
+  font-size: 12px;
+  color: #475569;
+  overflow-wrap: anywhere;
+}
