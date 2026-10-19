@@ -12,9 +12,9 @@ document.addEventListener("DOMContentLoaded", () => {
         status: "pending",
         image: "images/wedding.jpg",
         details: "Theme: Classic & Elegant",
-        clientName: "Maria Santos",
+        clientName: "Clariza Anucop",
         phone: "+63 912 345 6789",
-        email: "maria@gmail.com",
+        email: "Clariza@gmail.com",
       },
       {
         id: "BK-002",
@@ -27,9 +27,9 @@ document.addEventListener("DOMContentLoaded", () => {
         status: "confirmed",
         image: "images/birthday.jpg",
         details: "Theme: Tropical",
-        clientName: "Maria Santos",
+        clientName: "Jamielyn Paralijas",
         phone: "+63 912 345 6789",
-        email: "maria@gmail.com",
+        email: "Jamielyn@gmail.com",
       },
     ];
     localStorage.setItem("ems_bookings", JSON.stringify(initialBookings));
@@ -227,27 +227,27 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 
   if (page === "submitted.html") {
-  const params = new URLSearchParams(window.location.search);
+    const params = new URLSearchParams(window.location.search);
 
-  const bookingFields = {
-    "Event Type:": "event_type",
-    "Date:": "event_date",
-    "Venue:": "venue",
-    "Guests:": "guests",
-    "Budget:": "budget"
-  };
+    const bookingFields = {
+      "Event Type:": "event_type",
+      "Date:": "event_date",
+      "Venue:": "venue",
+      "Guests:": "guests",
+      "Budget:": "budget",
+    };
 
-  document.querySelectorAll(".bs-item").forEach(function (item) {
-    const label = item.querySelector(".bs-label");
-    const value = item.querySelector(".bs-value");
+    document.querySelectorAll(".bs-item").forEach(function (item) {
+      const label = item.querySelector(".bs-label");
+      const value = item.querySelector(".bs-value");
 
-    if (!label || !value) return;
+      if (!label || !value) return;
 
-    const key = bookingFields[label.textContent.trim()];
+      const key = bookingFields[label.textContent.trim()];
 
-    if (key && params.has(key) && params.get(key)) {
-      value.textContent = params.get(key);
-    }
-  });
-}
+      if (key && params.has(key) && params.get(key)) {
+        value.textContent = params.get(key);
+      }
+    });
+  }
 });
