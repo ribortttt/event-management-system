@@ -1,113 +1,47 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Settings - EventPro Admin</title>
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
-    />
-    <link rel="stylesheet" href="admin.css" />
-  </head>
-  <body class="admin-body">
-    <aside class="sidebar">
-      <div class="sb-brand">
-        <i class="fa-regular fa-calendar-check"></i>
-        <div>
-          <strong>EventPro</strong>
-          <small>Admin Panel</small>
-        </div>
-      </div>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Settings | EventPro Admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body" data-page="settings">
 
-      <nav class="sb-nav">
-      <a href="admindash.html"><i class="fa-solid fa-house"></i> Dashboard</a>
-      <a href="adminbookings.html"><i class="fa-regular fa-calendar-check"></i> Bookings</a>
-      <a href="adminevent.html"><i class="fa-regular fa-calendar-days"></i> Events</a>
-      <a href="adminsched.html"><i class="fa-regular fa-calendar"></i> Calendar & Scheduling</a>
-      <a href="adminvenue.html"><i class="fa-solid fa-building"></i> Venue Management</a>
-      <a href="adminguest.html"><i class="fa-solid fa-users"></i> Participants / Guests</a>
-      <a href="adminreport.html"><i class="fa-solid fa-chart-pie"></i> Reports & Reminders</a>
-      <a href="adminsettings.html" class="is-active"><i class="fa-solid fa-gear"></i> Settings</a>
-    </nav>
+  <aside class="sidebar"></aside>
 
-      <div class="sb-user">
-        <div class="sb-avatar">
+  <main class="main aset-page">
+    <header class="aset-head">
+      <h1>Settings</h1>
+      <p>Manage your account and system preferences.</p>
+    </header>
+
+    <div class="aset-layout">
+      <div class="aset-nav-card">
+        <a href="#" class="aset-nav-item is-active" data-tab="account">
           <i class="fa-regular fa-user"></i>
-        </div>
-        <div>
-          <strong>Ms. Mai</strong>
-          <small>Admin</small>
-        </div>
-        <i class="fa-solid fa-chevron-down"></i>
+          <span>Account</span>
+        </a>
+        <a href="#" class="aset-nav-item" data-tab="categories">
+          <i class="fa-regular fa-calendar-days"></i>
+          <span>Event Categories</span>
+        </a>
+        <a href="#" class="aset-nav-item" data-tab="system">
+          <i class="fa-solid fa-gear"></i>
+          <span>System</span>
+        </a>
       </div>
-    </aside>
 
-    <main class="main aset-page">
-      <header class="aset-head">
-        <h1>Settings</h1>
-        <p>Manage your account and system preferences.</p>
-      </header>
+      <div class="aset-content-card" id="asetContent"></div>
+    </div>
+  </main>
 
-      <div class="aset-layout">
-        <div class="aset-nav-card">
-          <a href="#" class="aset-nav-item is-active">
-            <i class="fa-regular fa-user"></i>
-            <span>Account</span>
-          </a>
-          <a href="#" class="aset-nav-item">
-            <i class="fa-regular fa-bell"></i>
-            <span>Notifications</span>
-          </a>
-          <a href="#" class="aset-nav-item">
-            <i class="fa-regular fa-calendar-days"></i>
-            <span>Event Templates</span>
-          </a>
-          <a href="#" class="aset-nav-item">
-            <i class="fa-solid fa-gear"></i>
-            <span>System</span>
-          </a>
-        </div>
+  <script src="user.js"></script>
 
-        <div class="aset-content-card">
-          <h2>Account Information</h2>
-
-          <div class="aset-form-wrapper">
-            <form class="aset-form" onsubmit="event.preventDefault()">
-              <div class="aset-field">
-                <label for="fullName">Name</label>
-                <input type="text" id="fullName" value="Ms. Mai" />
-              </div>
-
-              <div class="aset-field">
-                <label for="emailAddr">Email</label>
-                <input type="email" id="emailAddr" value="mai@email.com" />
-              </div>
-
-              <div class="aset-field">
-                <label for="userRole">Role</label>
-                <input type="text" id="userRole" value="Admin" />
-              </div>
-
-              <div class="aset-actions">
-                <button type="submit" class="aset-btn-save">
-                  Save Changes
-                </button>
-              </div>
-            </form>
-
-            <div class="aset-photo-sec">
-              <div class="aset-photo-preview">
-                <img
-                  src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=256&auto=format&fit=crop"
-                  alt="Ms. Mai Profile"/>
-              </div>
-              <button type="button" class="aset-btn-photo">Change Photo</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    <script src="admin-shared.js"></script>
-  </body>
+  <script src="admin.js"></script>
+</body>
 </html>

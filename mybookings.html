@@ -18,13 +18,15 @@
       <span>EventPro</span>
     </a>
 
-    <nav class="home-nav">
+    <nav class="home-nav" aria-label="Main">
       <a href="user-home.html">Home</a>
       <a href="eventtype.html">Event Types</a>
+      <a href="availability.html">Venues</a>
+      <a href="mybookings.html">My Bookings</a>
       <a href="aboutus.html#contact">Contact</a>
     </nav>
 
-    <a href="mybookings.html" class="mb-profile">
+    <a href="mybookings.html" class="mb-profile" aria-label="My bookings">
       <span class="mb-avatar"><i class="fa-solid fa-user"></i></span>
       <span class="mb-greeting">Hi, Clariza!</span>
     </a>
@@ -43,91 +45,8 @@
       <button type="button" class="mb-tab" data-filter="declined">Declined</button>
     </div>
 
-    <section class="mb-list">
-
-      <article class="mb-card" data-status="pending">
-        <div class="mb-thumb" role="img" aria-label="Booking image placeholder">
-          <img src="images/wedding.jpg">
-        </div>
-
-        <div class="mb-info">
-          <h3>Wedding Reception</h3>
-          <ul class="mb-meta">
-            <li><i class="fa-regular fa-calendar"></i><span>Oct 26,2026</span></li>
-            <li><i class="fa-solid fa-location-dot"></i><span>Riverside Hotel</span></li>
-            <li><i class="fa-solid fa-user-group"></i><span>100 Guests</span></li>
-          </ul>
-          <p class="mb-budget"><strong>Budget:</strong> 80,000-120,000</p>
-        </div>
-
-        <div class="mb-side">
-          <span class="mb-badge mb-pending">Pending</span>
-          <a href="bookingdetails.html" class="mb-view">View Details</a>
-        </div>
-      </article>
-
-      <article class="mb-card" data-status="confirmed">
-        <div class="mb-thumb" role="img" aria-label="Booking image placeholder">
-            <img src="images/birthday.jpg">
-        </div>
-
-        <div class="mb-info">
-          <h3>Birthday Celebration</h3>
-          <ul class="mb-meta">
-            <li><i class="fa-regular fa-calendar"></i><span>Nov 16,2026</span></li>
-            <li><i class="fa-solid fa-location-dot"></i><span>The Grand Plaza</span></li>
-            <li><i class="fa-solid fa-user-group"></i><span>50 Guests</span></li>
-          </ul>
-          <p class="mb-budget"><strong>Budget:</strong> 30,000-50,000</p>
-        </div>
-
-        <div class="mb-side">
-          <span class="mb-badge mb-confirmed">Confirmed</span>
-          <a href="bookingdetails.html" class="mb-view">View Details</a>
-        </div>
-      </article>
-
-      <article class="mb-card" data-status="declined">
-        <div class="mb-thumb" role="img" aria-label="Booking image placeholder">
-            <img src="images/event.jpg">
-        </div>
-
-        <div class="mb-info">
-          <h3>Corporate Event</h3>
-          <ul class="mb-meta">
-            <li><i class="fa-regular fa-calendar"></i><span>Dec 10,2026</span></li>
-            <li><i class="fa-solid fa-location-dot"></i><span>Crown Hotel</span></li>
-            <li><i class="fa-solid fa-user-group"></i><span>120 Guests</span></li>
-          </ul>
-          <p class="mb-budget"><strong>Budget:</strong> 100,000-150,000</p>
-        </div>
-
-        <div class="mb-side">
-          <span class="mb-badge mb-declined">Declined</span>
-          <a href="bookingdetails.html" class="mb-view">View Details</a>
-        </div>
-      </article>
-
-    </section>
+    <section class="mb-list"></section>
   </main>
-
-  <script>
-    var tabs = document.querySelectorAll('.mb-tab');
-    var cards = document.querySelectorAll('.mb-card');
-
-    tabs.forEach(function (tab) {
-      tab.addEventListener('click', function () {
-        var filter = tab.getAttribute('data-filter');
-
-        tabs.forEach(function (t) { t.classList.remove('is-active'); });
-        tab.classList.add('is-active');
-
-        cards.forEach(function (card) {
-          var show = filter === 'all' || card.getAttribute('data-status') === filter;
-          card.hidden = !show;
-        });
-      });
-    });</script>
-<script src="users.js"></script>
+<script src="user.js"></script>
 </body>
 </html>

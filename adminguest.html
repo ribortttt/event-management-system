@@ -1,166 +1,113 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Participants / Guests | EventPro Admin</title>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Participants / Guests | EventPro Admin</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body class="admin-body" data-page="guests">
 
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
-    />
-    <link rel="stylesheet" href="admin.css" />
-  </head>
+  <aside class="sidebar"></aside>
 
-  <body class="admin-body">
-    <aside class="sidebar">
-      <div class="sb-brand">
-        <i class="fa-regular fa-calendar-check"></i>
+  <main class="main">
+    <div class="ag-page">
+      <header class="ag-head">
         <div>
-          <strong>EventPro</strong>
-          <small>Admin Panel</small>
+          <h1>Participants / Guests</h1>
+          <p>Track registered guests and manage RSVPs.</p>
         </div>
-      </div>
+        <button type="button" class="ag-add" id="addGuestBtn"><i class="fa-solid fa-plus"></i> Add Guest</button>
+      </header>
 
-      <nav class="sb-nav">
-        <a href="admindash.html">
-          <i class="fa-solid fa-house"></i> Dashboard
-        </a>
-        <a href="adminbookings.html">
-          <i class="fa-regular fa-calendar-check"></i> Bookings
-        </a>
-        <a href="adminevent.html">
-          <i class="fa-regular fa-calendar-days"></i> Events
-        </a>
-        <a href="adminsched.html">
-          <i class="fa-regular fa-calendar"></i> Calendar &amp; Scheduling
-        </a>
-        <a href="adminvenue.html">
-          <i class="fa-solid fa-building"></i> Venue Management
-        </a>
-        <a href="adminguest.html" class="is-active">
-          <i class="fa-solid fa-users"></i> Participants / Guests
-        </a>
-        <a href="adminreport.html">
-          <i class="fa-solid fa-chart-pie"></i> Reports &amp; Reminders
-        </a>
-        <a href="adminsettings.html">
-          <i class="fa-solid fa-gear"></i> Settings
-        </a>
-      </nav>
+      <section class="stats" aria-label="Guest summary">
+        <article class="stat stat-blue">
+          <i class="fa-solid fa-users"></i>
+          <h3>Total Bookings</h3>
+          <span class="num" id="guestBookingCount">0</span>
+          <span class="note">All bookings</span>
+        </article>
+        <article class="stat stat-green">
+          <i class="fa-solid fa-user-check"></i>
+          <h3>Expected Guests</h3>
+          <span class="num" id="guestTotalCount">0</span>
+          <span class="note">Confirmed bookings</span>
+        </article>
+        <article class="stat stat-lav">
+          <i class="fa-solid fa-clipboard-check"></i>
+          <h3>Registered Guests</h3>
+          <span class="num" id="guestRegisteredCount">0</span>
+          <span class="note">Named participants</span>
+        </article>
+        <article class="stat stat-yellow">
+          <i class="fa-regular fa-clock"></i>
+          <h3>Pending Bookings</h3>
+          <span class="num" id="guestPendingCount">0</span>
+          <span class="note">Awaiting confirmation</span>
+        </article>
+      </section>
 
-      <div class="sb-user">
-        <span class="sb-avatar">
-          <i class="fa-regular fa-user"></i>
-        </span>
-        <div>
-          <strong>Ms. Mai</strong>
-          <small>Admin</small>
+      <section class="ag-filters" aria-label="Guest filters">
+        <div class="ag-search">
+          <i class="fa-solid fa-magnifying-glass"></i>
+          <input type="search" id="guestSearch" placeholder="Search name, email, or event..." aria-label="Search guests">
         </div>
-        <i class="fa-solid fa-chevron-down"></i>
+        <select id="guestStatusFilter" aria-label="Filter by booking status">
+          <option value="">All Status</option>
+          <option value="confirmed">Confirmed</option>
+          <option value="pending">Pending</option>
+          <option value="declined">Declined</option>
+        </select>
+        <select id="rsvpFilter" aria-label="Filter by RSVP">
+          <option value="">All RSVP</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+          <option value="pending">Pending</option>
+        </select>
+      </section>
+
+      <div class="ag-table-wrap">
+        <table class="ag-table">
+          <thead>
+            <tr>
+              <th>Guest Name</th>
+              <th>Email</th>
+              <th>Event</th>
+              <th>Date</th>
+              <th>Booking Status</th>
+              <th>RSVP</th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody id="guestRows"></tbody>
+        </table>
       </div>
-    </aside>
+      <p id="guestResultCount" class="ag-count" aria-live="polite"></p>
 
-    <main class="main">
-      <div class="ag-page">
-        <header class="ag-head">
-          <div>
-            <h1>Participants / Guests</h1>
-            <p>Track registered guests and manage RSVPs.</p>
-          </div>
-
-          <button type="button" class="ag-add" id="addGuestBtn">
-            <i class="fa-solid fa-plus"></i> Add Guest
-          </button>
-        </header>
-
-        <section class="stats" aria-label="Guest summary">
-          <article class="stat stat-blue">
-            <i class="fa-solid fa-users"></i>
-            <h3>Total Bookings</h3>
-            <span class="num" id="guestBookingCount">0</span>
-            <span class="note">Recorded bookings</span>
-          </article>
-
-          <article class="stat stat-green">
-            <i class="fa-solid fa-user-check"></i>
-            <h3>Total Guests</h3>
-            <span class="num" id="guestTotalCount">0</span>
-            <span class="note">Expected attendees</span>
-          </article>
-
-          <article class="stat stat-lav">
-            <i class="fa-solid fa-clipboard-check"></i>
-            <h3>Registered</h3>
-            <span class="num" id="guestRegisteredCount">0</span>
-            <span class="note">Non-pending bookings</span>
-          </article>
-
-          <article class="stat stat-yellow">
-            <i class="fa-regular fa-clock"></i>
-            <h3>Pending</h3>
-            <span class="num" id="guestPendingCount">0</span>
-            <span class="note">Awaiting confirmation</span>
-          </article>
-        </section>
-
-        <section class="ag-filters" aria-label="Guest filters">
-          <div class="ag-search">
-            <i class="fa-solid fa-magnifying-glass"></i>
-            <input
-              type="search"
-              id="guestSearch"
-              placeholder="Search name, email, or event..."
-              aria-label="Search guests"
-            />
-          </div>
-
-          <select id="guestStatusFilter" aria-label="Filter by status">
-            <option value="">All Status</option>
-            <option value="registered">Registered</option>
-            <option value="pending">Pending</option>
-            <option value="declined">Declined</option>
-          </select>
-
-          <select id="rsvpFilter" aria-label="Filter by RSVP">
-            <option value="">All RSVP</option>
-            <option value="yes">Yes</option>
-            <option value="no">No</option>
-            <option value="pending">Pending</option>
-          </select>
-        </section>
-
-        <div class="ag-table-wrap">
-          <table class="ag-table">
-            <thead>
-              <tr>
-                <th>Customer Name</th>
-                <th>Email</th>
-                <th>Event</th>
-                <th>Guests</th>
-                <th>Status</th>
-                <th>RSVP</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-
-            <tbody id="guestRows">
-              <tr>
-                <td colspan="7">Loading guests...</td>
-              </tr>
-            </tbody>
-          </table>
-        </div>
-
-        <p id="guestResultCount" aria-live="polite"></p>
+      <h2 class="ag-subhead">Event Summary</h2>
+      <div class="ag-table-wrap">
+        <table class="ag-table">
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Customer</th>
+              <th>Date</th>
+              <th>Expected</th>
+              <th>Registered</th>
+              <th>Remaining</th>
+            </tr>
+          </thead>
+          <tbody id="guestSummaryRows"></tbody>
+        </table>
       </div>
-    </main>
+    </div>
+  </main>
 
-    <script src="adminguest.js"></script>
-  </body>
+  <script src="user.js"></script>
+  <script src="admin.js"></script>
+</body>
 </html>

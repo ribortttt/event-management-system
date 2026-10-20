@@ -18,32 +18,23 @@
       <span>EventPro</span>
     </a>
 
-    <nav class="home-nav">
+    <nav class="home-nav" aria-label="Main">
       <a href="user-home.html">Home</a>
       <a href="eventtype.html">Event Types</a>
       <a href="aboutus.html#contact">Contact</a>
     </nav>
 
-    <a href="eventdetails.html" class="btn-primary">Book an Event</a>
+    <a href="eventtype.html" class="btn-primary">Book an Event</a>
   </header>
 
-  <ol class="ed-steps">
-    <li class="ed-step is-active">
-      <span class="ed-step-number">1</span>
-      <span class="ed-step-label">Event Details</span>
-    </li>
-    <li class="ed-step">
-      <span class="ed-step-number">2</span>
-      <span class="ed-step-label">Your Information</span>
-    </li>
-    <li class="ed-step">
-      <span class="ed-step-number">3</span>
-      <span class="ed-step-label">Review &amp; Submit</span>
-    </li>
+  <ol class="ed-steps" aria-label="Booking steps">
+    <li class="ed-step is-active"><span class="ed-step-number">1</span><span>Event Details</span></li>
+    <li class="ed-step"><span class="ed-step-number">2</span><span>Your Information</span></li>
+    <li class="ed-step"><span class="ed-step-number">3</span><span>Review &amp; Submit</span></li>
   </ol>
 
   <main class="ed-page">
-    <form class="ed-form" action="submitted.html" method="get">
+    <form class="ed-form">
 
       <div class="ed-heading">
         <h1>Event Details</h1>
@@ -52,15 +43,8 @@
 
       <div class="ed-field ed-event-type">
         <label for="event-type">Event type</label>
-        <select id="event-type" name="event_type" required>
+        <select id="event-type" required>
           <option value="" disabled selected>Select event type</option>
-          <option>Birthdays</option>
-          <option>Weddings</option>
-          <option>Corporate Events</option>
-          <option>Debut</option>
-          <option>Anniversary</option>
-          <option>Product Launch</option>
-          <option>Other</option>
         </select>
       </div>
 
@@ -68,54 +52,47 @@
         <label for="event-date">Event Date</label>
         <div class="ed-date-wrap">
           <i class="fa-regular fa-calendar ed-date-icon"></i>
-          <input type="text" id="event-date" name="event_date" placeholder="Select date" onfocus="this.type='date'" onblur="if(!this.value)this.type='text'" required>
+          <input type="date" id="event-date" required>
           <i class="fa-solid fa-chevron-down ed-date-chevron"></i>
         </div>
       </div>
 
       <div class="ed-field ed-venue">
         <label for="venue">Venue</label>
-        <select id="venue" name="venue" required>
+        <select id="venue" required>
           <option value="" disabled selected>Select venue</option>
-          <option>Venue 1</option>
-          <option>Venue 2</option>
-          <option>Venue 3</option>
         </select>
       </div>
 
       <div class="ed-field ed-guests">
         <label for="guests">Number of Guests / Pax</label>
-        <input type="number" id="guests" name="guests" min="1" placeholder="Enter the number of guests" required>
+        <input type="number" id="guests" min="1" placeholder="Enter the number of guests" required>
       </div>
 
       <div class="ed-field ed-budget">
         <label for="budget">Budget(PHP)</label>
-        <select id="budget" name="budget" required>
+        <select id="budget" required>
           <option value="" disabled selected>Select budget range</option>
-          <option>Below 50,000</option>
-          <option>50,000 – 100,000</option>
-          <option>100,000 – 250,000</option>
-          <option>250,000 – 500,000</option>
-          <option>Above 500,000</option>
+          <option value="Below 30,000">Below 30,000</option>
+          <option value="30,000-50,000">30,000-50,000</option>
+          <option value="50,000-100,000">50,000-100,000</option>
+          <option value="100,000-150,000">100,000-150,000</option>
+          <option value="150,000-200,000">150,000-200,000</option>
+          <option value="Above 200,000">Above 200,000</option>
         </select>
       </div>
 
       <div class="ed-field ed-details">
         <label for="details">Other Event Details</label>
-        <textarea id="details" name="details" placeholder="Tell us more about your event (theme,special requests,etc.)"></textarea>
+        <textarea id="details" placeholder="Tell us more about your event (theme,special requests,etc.)"></textarea>
       </div>
 
       <div class="ed-actions">
-        <button type="submit" class="ed-submit">
-          <span>Submit</span>
-          <i class="fa-solid fa-arrow-right"></i>
-        </button>
+        <button type="submit" class="ed-submit">Submit <i class="fa-solid fa-arrow-right"></i></button>
       </div>
 
       <aside class="ed-help">
-        <div class="ed-help-icon">
-          <i class="fa-regular fa-calendar"></i>
-        </div>
+        <div class="ed-help-icon"><i class="fa-regular fa-calendar"></i></div>
         <h2>Need help?</h2>
         <p>You can always contact us<br>for any inquiries</p>
         <a href="aboutus.html#contact" class="ed-help-button">Contact Us</a>
@@ -123,6 +100,7 @@
 
     </form>
   </main>
-<script src="users.js"></script>
+
+  <script src="user.js"></script>
 </body>
 </html>
